@@ -1,0 +1,13 @@
+nginx:
+    build: ./nginx
+    links:
+        - kestrel:kestrel
+    volumes:
+       - host cert path:nginx cert path
+    ports:
+        - "80:80"
+        - 443:443
+kestrel:
+    build: .
+    ports:
+        - "1234:1234"
